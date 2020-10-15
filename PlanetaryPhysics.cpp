@@ -102,7 +102,7 @@ public:
         Body sun("Sun", olc::vd2d(0, 0), olc::vd2d(0, 0), 2000, 20, olc::YELLOW);
         Body sun2("Sun2", olc::vd2d(ScreenWidth()*0.25, 0), olc::vd2d(0, 300), 2000, 20, olc::YELLOW);
         Body planet("Planet 1", olc::vd2d(ScreenWidth()*0.25, 0), olc::vd2d(0, sqrt(4*GRAVITATIONAL_CONSTANT*(sun.mass+1)/ (double)(ScreenWidth()*0.25))), 1, 5);
-        Body planet2("Planet 2",olc::vd2d(ScreenWidth(), 0), olc::vd2d(0, 100.0f), 1, 5);
+        Body planet2("Planet 2",olc::vd2d(ScreenWidth(), 0), olc::vd2d(0, 200.0f), 1, 5);
         Body planet3("Planet 3", olc::vd2d(ScreenWidth()*0.25f, 0), olc::vd2d(0, 300.0f), 10, 10);
         bodies.push_back(sun);
         //bodies.push_back(sun2);
@@ -233,9 +233,9 @@ public:
             }
         }
         //Drawing Barycentre
-        Draw(calibrate(barycentre), olc::RED);
+        //Draw(calibrate(barycentre), olc::RED);
 
-        CalculateBarycentre();
+        //CalculateBarycentre();
         //HUD
         std::ostringstream scalePrint;
         scalePrint.precision(3);
@@ -304,7 +304,7 @@ public:
         DrawLine(lineEndPos, lineEndPos + sideLeft * 5, colour);
         */
     }
-
+    /*
     void CalculateBarycentre() {
         double radius = 0;
         std::vector<olc::vd2d> barycentres;
@@ -326,6 +326,18 @@ public:
         average /= barycentres.size();
         barycentre = average;
     }
+    */
+    /*
+    void BruteBarycentre() {
+        olc::vd2d minimumPos(0, 0);
+        olc::vd2d minimumForce(300, 300);
+        for (uint32_t x = 0; x < ScreenWidth(); x++) {
+            for (uint32_t y = 0; y < ScreenHeight(); y++) {
+
+            }
+        }
+    }
+    */
 };
 int main() {
     PlanetaryPhysics demo;
