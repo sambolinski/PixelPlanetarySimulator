@@ -1,5 +1,5 @@
 # PixelPlanetarySimulator
-![img](https://i.imgur.com/3cuVtdO.png)
+![img](https://i.imgur.com/3PnfKVY.gif)
 This project is a remake of my Java 2D planetary orbit simulator using C++ and the [olcPixelGameEngine](https://github.com/OneLoneCoder/olcPixelGameEngine)
 
 # Features
