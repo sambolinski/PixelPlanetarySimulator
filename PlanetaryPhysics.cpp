@@ -1,9 +1,12 @@
 #define OLC_PGE_APPLICATION
 #include "olcPixelGameEngine.h"
+#include "olcPGEX_PopUpMenu.h"
+#include "ExponentMaths.h"
 #include <vector>
 #include <string>
 #include <iostream>
 #include <iomanip>
+typedef olc::v2d_generic<Exponent> ve2d;
 
 //Curent bugs and problems
 //Velocity vector not working       --SOLVED
@@ -67,6 +70,7 @@ private:
 
     olc::vd2d camera;
     olc::vd2d centre;
+
     double GRAVITATIONAL_CONSTANT = 0.0001;
     double scale = 1;
 
@@ -101,12 +105,12 @@ public:
     bool OnUserCreate() override {
         Body sun("Sun", olc::vd2d(0, 0), olc::vd2d(0, 0), 2000, 20, olc::YELLOW);
         Body sun2("Sun2", olc::vd2d(ScreenWidth()*0.25, 0), olc::vd2d(0, 300), 2000, 20, olc::YELLOW);
-        Body planet("Planet 1", olc::vd2d(ScreenWidth()*0.25, 0), olc::vd2d(0, sqrt(4*GRAVITATIONAL_CONSTANT*(sun.mass+1)/ (double)(ScreenWidth()*0.25))), 1, 5);
+        Body planet("Planet 1", olc::vd2d(ScreenWidth()*0.25, 0), olc::vd2d(0, 1000*sqrt(4*GRAVITATIONAL_CONSTANT*(sun.mass+1)/ (double)(ScreenWidth()*0.25))), 1, 5);
         Body planet2("Planet 2",olc::vd2d(ScreenWidth(), 0), olc::vd2d(0, 200.0f), 1, 5);
         Body planet3("Planet 3", olc::vd2d(ScreenWidth()*0.25f, 0), olc::vd2d(0, 300.0f), 10, 10);
         bodies.push_back(sun);
         //bodies.push_back(sun2);
-        //bodies.push_back(planet);
+        bodies.push_back(planet);
         bodies.push_back(planet2);
         //bodies.push_back(planet3);
         return true;
